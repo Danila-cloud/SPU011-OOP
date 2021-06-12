@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include<iostream>
 #include<typeinfo>
 #include"Drob.h"
@@ -188,7 +188,7 @@ ostream & operator<<(ostream & out, const Array<T> & obj)
 template<class T>
 istream & operator>>(istream & in, Array<T> & obj)
 {
-	cout << "Ââåäèòå " << obj.size << " ýëåìåíòîâ: ";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ " << obj.size << " ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²: ";
 	for (size_t i = 0; i < obj.size; i++)
 	{
 		in >> obj.arr[i];
