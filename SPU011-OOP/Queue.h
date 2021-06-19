@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include"MyData.h"
 
 template<class T>
@@ -13,8 +13,8 @@ public:
 	void push(T val);
 	T pop();
 	T peek();
-	int getSize();     //получение текущего размера
-	void clear();      //очистка стека
+	int getSize();     //РїРѕР»СѓС‡РµРЅРёРµ С‚РµРєСѓС‰РµРіРѕ СЂР°Р·РјРµСЂР°
+	void clear();      //РѕС‡РёСЃС‚РєР° СЃС‚РµРєР°
 	void print() const;
 
 };
@@ -124,8 +124,8 @@ public:
 	void push(T val, PRIORITY pri);
 	T pop();
 	T peek();
-	int getSize();     //получение текущего размера
-	void clear();      //очистка стека
+	int getSize();     //РїРѕР»СѓС‡РµРЅРёРµ С‚РµРєСѓС‰РµРіРѕ СЂР°Р·РјРµСЂР°
+	void clear();      //РѕС‡РёСЃС‚РєР° СЃС‚РµРєР°
 	void print() const;
 
 };
