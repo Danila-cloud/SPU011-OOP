@@ -10,6 +10,7 @@ template<class T>
 class Array
 {
 public:
+	Array() {}
 	explicit Array(int s);
 	~Array();
 	Array(const Array &obj);

@@ -2,12 +2,17 @@
 #include"Array.h"
 #include"Drob.h"
 #include"Weather.h"
+#include"Stack.h"
+#include"Queue.h"
+
 using namespace std;
 
 int main()
 {
 	setlocale(0, "");
 	cout << endl;
+
+	
 
 	//Array a(10);
 	//a.setRand();
@@ -38,7 +43,7 @@ int main()
 	w.printAllWeather(10, 50);*/
 
 
-	Array<string> a(10);
+	/*Array<string> a(10);
 	Array<string> b(5);
 
 	a.setRand();
@@ -47,6 +52,60 @@ int main()
 
 	cout << b << endl;
 	a = b;
+	cout << a << endl;*/
+
+	/*DynamicStack<Drob, 5> st;
+	st.push(Drob(3,5));
+	st.push(Drob(3, 4));
+	st.push(Drob(3, 8));
+	st.print();
+	Drob a = st.pop();
+	Drob b = st.pop();
+	Drob c = st.peek();
+	st.push(Drob(3, 9));
+	st.push(Drob(3, 7));
+	st.push(Drob(3, 2));
+
+	st.print();
 	cout << a << endl;
+	cout << b << endl;
+	cout << c << endl;
+	cout << st.getSize() << endl;*/
+
+
+	/*DynamicStack<Array<int>, 5> d;
+	Array<int> a1(5);
+	a1.setRand();
+	Array<int> a2(8);
+	a2.setRand();
+	d.push(a1);
+	d.push(a2);
+	d.print();
+	d.pop();
+	d.print();*/
+
+	//Queue<Array<int>> q;
+	//Array<int> a1(5);
+	//a1.setRand();
+	//Array<int> a2(8);
+	//a2.setRand();
+	//q.push(a1);
+	//q.push(a2);
+
+	//q.print();
+
+	////q.pop();
+	//q.print();
+	//cout << q.getSize() << endl;
+	//q.clear();
+	//cout << q.getSize() << endl;
+
+	QueuePriority<int> q;
+	q.push(1, LOW);
+	q.push(2, LOW);
+	q.push(3, MEDIUM);
+	q.push(4, HIGH);
+	q.print();
+
 	system("pause");
 }

@@ -35,7 +35,7 @@ public:
 
 ostream & operator<<(ostream & out, const Drob & obj)
 {
-	out << obj.ch << "/" << obj.zn << endl;
+	out << obj.ch << "/" << obj.zn;
 	return out;
 }
 
