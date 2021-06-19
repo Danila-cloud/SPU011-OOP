@@ -131,6 +131,12 @@ public:
 };
 
 template<class T>
+inline QueuePriority<T>::~QueuePriority()
+{
+	clear();
+}
+
+template<class T>
 inline void QueuePriority<T>::push(T val, PRIORITY pri)
 {
 	if (size == 0)
@@ -142,20 +148,89 @@ inline void QueuePriority<T>::push(T val, PRIORITY pri)
 	}
 	else
 	{
-		MyData<T> *temp = new MyData<T>;
+		MyData<T>* temp = new MyData<T>;
 		temp->value = val;
-		first->pri = pri;
-		MyData<T> *temp2 = first;
-		MyData<T> *temp3 = first;
-		while (temp2->pri >= pri)
+		temp->pri = pri;
+		MyData<T>* temp2 = first;
+		if (last->pri >= pri)
 		{
-			temp3 = temp2;
-			temp2 = temp2->next;
+			last->next = temp;
+			last = temp;
 		}
-		temp3->next = temp;
-		temp->next = temp2;
+		else
+		{
+			if (pri > first->pri)
+			{
+				temp->next = first;
+				first = temp;
+			}
+			else
+			{
+				while (temp2->pri >= pri && temp2->next->pri >= pri)
+				{
+					temp2 = temp2->next;
+				}
+				temp->next = temp2->next;
+				temp2->next = temp;
+			}
+		}
 	}
 	size++;
+}
+
+template<class T>
+inline T QueuePriority<T>::pop()
+{
+	if (size == 0)
+	{
+		cout << "Queue is empty!!!" << endl;
+		system("pause");
+		exit(1);
+	}
+
+	T val = first->value;
+	if (size == 1)
+	{
+		delete first;
+		first = last = nullptr;
+	}
+	else
+	{
+		MyData<T>* temp = first;
+		first = first->next;
+		delete temp;
+	}
+	size--;
+	return val;
+}
+
+template<class T>
+inline T QueuePriority<T>::peek()
+{
+	if (size > 0)
+	{
+		return first->value;
+	}
+	else
+	{
+		cout << "Queue is empty!!!" << endl;
+		system("pause");
+		exit(1);
+	}
+}
+
+template<class T>
+inline int QueuePriority<T>::getSize()
+{
+	return size;
+}
+
+template<class T>
+inline void QueuePriority<T>::clear()
+{
+	while (size)
+		pop();
+	first = last = nullptr;
 }
 
 template<class T>

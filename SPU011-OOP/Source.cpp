@@ -106,6 +106,8 @@ int main()
 	q.push(3, MEDIUM);
 	q.push(4, HIGH);
 	q.print();
+	q.pop();
+	q.print();
 
 	system("pause");
 }
