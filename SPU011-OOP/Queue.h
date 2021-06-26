@@ -127,7 +127,7 @@ public:
 	int getSize();     //получение текущего размера
 	void clear();      //очистка стека
 	void print() const;
-
+	bool isEmpty();
 };
 
 template<class T>
@@ -239,8 +239,14 @@ inline void QueuePriority<T>::print() const
 	MyData<T> *temp = first;
 	while (temp)
 	{
-		cout << temp->value << " ";
+		cout << temp->value << endl;
 		temp = temp->next;
 	}
 	cout << endl;
+}
+
+template<class T>
+inline bool QueuePriority<T>::isEmpty()
+{
+	return size == 0;
 }

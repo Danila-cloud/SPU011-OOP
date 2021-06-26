@@ -4,6 +4,9 @@
 #include"Weather.h"
 #include"Stack.h"
 #include"Queue.h"
+#include"List.h"
+#include"PrintServer.h"
+#include<Windows.h>
 
 using namespace std;
 
@@ -100,14 +103,63 @@ int main()
 	//q.clear();
 	//cout << q.getSize() << endl;
 
-	QueuePriority<int> q;
+	/*QueuePriority<int> q;
 	q.push(1, LOW);
 	q.push(2, LOW);
 	q.push(3, MEDIUM);
 	q.push(4, HIGH);
 	q.print();
 	q.pop();
-	q.print();
+	q.print();*/
+
+	//List<int> l1;
+
+	//{
+	//	List<int> l;
+	//	l.push_front(10);
+	//	l.push_front(20);
+	//	l.push_front(30);
+	//	//l.push_back(40);
+	//	//l.push_back(50);
+	//	//l.push_at(100, 2);
+	//	//l.print();
+	//	cout << l << endl;
+	//	//int a = l.pop_front();
+	//	//l.pop_front();
+	//	//cout << l << endl;
+	//	//l.pop_back();
+	//	//l.push_front(20);
+	//	//l.push_back(10);
+
+	//	l.pop_at(5);
+
+	//	cout << l;
+
+	//	cout << l[1] << endl;
+	//	l1 = l;
+	//	cout << l.peek_back() << endl;
+	//}
+	//cout << l1.getLength() << endl;
+
+	cout << endl;
+	srand(time(0));
+	PrintServer ps("10.6.0.155");
+	string fName[] = { "zvit.xls", "otchet.doc", "file1.txt", "foto.jpg", "edweqw.ppt" };
+	string dept[] = { "Admin", "Economics", "HR", "Transport", "Buhgalteria" };
+
+
+
+	int t = 0;
+	while (true)
+	{
+		int m = rand() % 5 +3;
+		if (t%m == 0)
+			ps.addTaskPrint(TaskPrint(fName[rand() % 5], dept[rand() % 5], rand() % 5 + 5));
+		ps.work();
+		t++;
+		Sleep(1000);
+	}
+
 
 	system("pause");
 }
