@@ -56,7 +56,7 @@ public:
 template<class T>
 inline List<T>::List(const List<T> & obj)
 {
-	for (size_t i = 0; i < length; i++)
+	for (size_t i = 0; i < obj.length; i++)
 	{
 		push_back(obj[i]);
 	}
@@ -217,7 +217,7 @@ ostream & operator<<(ostream & out, const List<T>& obj)
 	MyData<T> * temp = obj.first;
 	while (temp)
 	{
-		out << temp->value << endl;
+		out << temp->value;
 		temp = temp->next;
 	}
 	return out;

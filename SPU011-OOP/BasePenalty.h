@@ -13,13 +13,14 @@ class Protokol
 	string numPPN;
 	string tag;
 	int sum;
-	bool pay;
+	bool pay = false;
 
 public:
 	Protokol() {}
 	string getNumTS() { return numTS; }
 
 	friend ostream & operator << (ostream & out, const Protokol & p);
+	friend ostream & operator << (ostream & out, const Protokol * p);
 	friend istream & operator >> (istream & in, Protokol & p);
 	friend istream & operator >> (istream & in, Protokol * p);
 
@@ -29,6 +30,13 @@ ostream & operator<<(ostream & out, const Protokol & p)
 {
 	out << p.numTS << "  " << p.date << "  " << setw(6) << left << p.numPPN << setw(20) << p.tag << setw(6) << p.sum
 		<< ((p.pay) ? "Оплачено" : "Не оплачено") << endl;
+	return out;
+}
+
+ostream& operator<<(ostream& out, const Protokol * p)
+{
+	out << p->numTS << "  " << p->date << "  " << setw(6) << left << p->numPPN << setw(20) << p->tag << setw(6) << p->sum
+		<< ((p->pay) ? "Оплачено" : "Не оплачено") << endl;
 	return out;
 }
 
