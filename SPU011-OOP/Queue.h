@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include"MyData.h"
 
+
 template<class T>
 class Queue
 {
@@ -128,6 +129,7 @@ public:
 	void clear();      //очистка стека
 	void print() const;
 	bool isEmpty();
+	void superMethod();
 };
 
 template<class T>
@@ -250,3 +252,8 @@ inline bool QueuePriority<T>::isEmpty()
 {
 	return size == 0;
 }
+
+
+
+
+

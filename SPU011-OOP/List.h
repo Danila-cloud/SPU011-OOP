@@ -26,7 +26,7 @@ class List
 public:
 	~List() { clear(); };
 	List() {}
-	//List(const List & obj);
+	List(const List<T> & obj);
 	//List operator=(const List & obj);
 	void push_front(T val);
 	void push_back(T val);
@@ -37,7 +37,7 @@ public:
 	T peek_front();
 	T peek_back();
 	T peek_at(int ind);
-	T operator[](int ind);
+	T operator[](int ind) const;
 	bool isEmpty();
 	void print();
 	void print(int x, int y);
@@ -52,6 +52,15 @@ public:
 	friend ostream & operator <<(ostream & out, const List<T> & obj);
 
 };
+
+template<class T>
+inline List<T>::List(const List<T> & obj)
+{
+	for (size_t i = 0; i < length; i++)
+	{
+		push_back(obj[i]);
+	}
+}
 
 template<class T>
 inline void List<T>::push_front(T val)
@@ -215,7 +224,7 @@ ostream & operator<<(ostream & out, const List<T>& obj)
 }
 
 template<class T>
-inline T List<T>::operator[](int ind)
+inline T List<T>::operator[](int ind) const
 {
 	MyData<T> * temp = first;
 	for (size_t i = 0; i < ind; i++)

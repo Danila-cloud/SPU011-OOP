@@ -7,6 +7,10 @@
 #include"List.h"
 #include"PrintServer.h"
 #include<Windows.h>
+#include"ForwardList.h"
+#include<list>
+#include<forward_list>
+#include"BasePenalty.h"
 
 using namespace std;
 
@@ -103,14 +107,15 @@ int main()
 	//q.clear();
 	//cout << q.getSize() << endl;
 
-	/*QueuePriority<int> q;
-	q.push(1, LOW);
-	q.push(2, LOW);
-	q.push(3, MEDIUM);
-	q.push(4, HIGH);
-	q.print();
-	q.pop();
-	q.print();*/
+	//QueuePriority<int> q;
+	//q.push(1, LOW);
+	//q.push(2, LOW);
+	//q.push(3, MEDIUM);
+	//q.push(4, HIGH);
+	//q.print();
+	//q.pop();
+	//q.print();
+	////q.superMethod();
 
 	//List<int> l1;
 
@@ -141,24 +146,36 @@ int main()
 	//}
 	//cout << l1.getLength() << endl;
 
+	/*ForwardList<int> fl;
+	fl.push_front(10);
+	fl.push_front(20);
+	fl.push_front(30);
+	fl.push_back(40);
+	fl.push_back(50);
+	fl.push_back(60);
+	fl.print();
 	cout << endl;
-	srand(time(0));
-	PrintServer ps("10.6.0.155");
-	string fName[] = { "zvit.xls", "otchet.doc", "file1.txt", "foto.jpg", "edweqw.ppt" };
-	string dept[] = { "Admin", "Economics", "HR", "Transport", "Buhgalteria" };
+	fl.push_at(100, 5);
+	fl.print();*/
 
+	/*fl.pop_front();
+	cout << endl;
+	fl.print();
+	
 
+	fl.pop_back();
+	cout << endl;
+	fl.print();*/
 
-	int t = 0;
-	while (true)
-	{
-		int m = rand() % 5 +3;
-		if (t%m == 0)
-			ps.addTaskPrint(TaskPrint(fName[rand() % 5], dept[rand() % 5], rand() % 5 + 5));
-		ps.work();
-		t++;
-		Sleep(1000);
-	}
+	/*fl.pop_at(5);
+	cout << endl;
+	fl.print();*/
+
+	//forward_list<int>l1;
+	
+	BasePenalty bs;
+	bs.menu();
+
 
 
 	system("pause");

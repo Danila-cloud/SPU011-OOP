@@ -17,7 +17,11 @@ class TaskPrint
 	string department;
 	int timePrint = -1;
 
+
 public:
+
+	int timeWait = 0;
+
 	TaskPrint() {}
 	TaskPrint(string f, string d, int t) :fileName(f), department(d), timePrint(t) {}
 	int getTimePrint();
@@ -50,7 +54,7 @@ inline PRIORITY TaskPrint::getPriority() const
 
 ostream & operator<<(ostream & out, const TaskPrint & obj)
 {
-	out << left << setw(12) << obj.fileName << setw(15) << obj.department << setw(5) << obj.timePrint;
+	out << left << setw(12) << obj.fileName << setw(15) << obj.department << setw(5) << obj.timePrint << "     " << obj.timeWait;
 	return out;
 }
 
@@ -75,6 +79,8 @@ void PrintServer::addTaskPrint(const TaskPrint & tp)
 
 inline void PrintServer::work()
 {
+	qPrint.superMethod();
+
 	if (currPrint.getTimePrint() == 0)
 	{
 		logs.push_back(forLogs);
@@ -107,3 +113,36 @@ inline void PrintServer::work()
 		currPrint = forLogs = qPrint.pop();
 
 }
+
+
+template<>
+inline void QueuePriority<TaskPrint>::superMethod()
+{
+	MyData<TaskPrint> *temp = first;
+	while (temp)
+	{
+		temp->value.timeWait++;
+		temp = temp->next;
+	}
+}
+
+
+
+/*cout << endl;
+	srand(time(0));
+	PrintServer ps("10.6.0.155");
+	string fName[] = { "zvit.xls", "otchet.doc", "file1.txt", "foto.jpg", "edweqw.ppt" };
+	string dept[] = { "Admin", "Economics", "HR", "Transport", "Buhgalteria" };
+
+
+
+	int t = 0;
+	while (true)
+	{
+		int m = rand() % 5 +3;
+		if (t%m == 0)
+			ps.addTaskPrint(TaskPrint(fName[rand() % 5], dept[rand() % 5], rand() % 5 + 5));
+		ps.work();
+		t++;
+		Sleep(1000);
+	}*/
