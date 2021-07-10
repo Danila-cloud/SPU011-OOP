@@ -231,6 +231,7 @@ int main()
 	cout << endl;
 
 
+
 	const Patalogoanatom p("Petro", 70, 50000, 1200, true);
 	p.print();
 
