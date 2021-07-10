@@ -11,6 +11,8 @@
 #include<list>
 #include<forward_list>
 #include"BasePenalty.h"
+#include"Relation.h"
+#include"Inheritance.h"
 
 using namespace std;
 
@@ -173,10 +175,64 @@ int main()
 
 	//forward_list<int>l1;
 	
-	BasePenalty bs;
-	bs.menu();
+	//BasePenalty bs;
+	//bs.menu();
 
 
+	//Composition::Car c;
+	//c.move();
+
+	/*Agrigation::Engine *en = new Agrigation::Engine;
+	{
+		Agrigation::Car c1;
+		c1.setEngine(en);
+		c1.move();
+
+		Agrigation::Stend st;
+		st.setEngine(c1.getEngine());
+		st.test();
+
+	}
+	en->start();*/
+
+
+	/*Association::Student *st1 = new Association::Student("Ярош А.С.");
+	Association::Student *st2 = new Association::Student("Михальчук А.И.");
+	Association::Student *st3 = new Association::Student("Понурко А.А.");
+	Association::Student *st4 = new Association::Student("Вавич И.А.");
+	Association::Student *st5 = new Association::Student("Инкогнито");
+
+	Association::Teacher *t1 = new Association::Teacher("Гололобов С.А.");
+	Association::Teacher *t2 = new Association::Teacher("Зайцев В.В.");
+	Association::Teacher *t3 = new Association::Teacher("Стрельцов Н.Н.");
+
+	t2->addStudent(st1);
+	t1->addStudent(st1);
+	t1->addStudent(st2);
+	t1->addStudent(st3);
+	t1->addStudent(st4);
+
+	cout << *t1 << endl;
+	cout << *t2 << endl;
+	cout << *t3 << endl;
+
+	cout << endl;
+	cout << *st1 << endl;
+	cout << *st2 << endl;
+	cout << *st3 << endl;
+	cout << *st4 << endl;
+	cout << *st5 << endl;*/
+
+	Human h("Ivan", 50);
+	
+
+	const Doctor d("Ivan", 50, 5000, 12);
+	d.print();
+	cout << endl;
+
+
+	const Patalogoanatom p("Petro", 70, 50000, 1200, true);
+	p.print();
 
 	system("pause");
 }

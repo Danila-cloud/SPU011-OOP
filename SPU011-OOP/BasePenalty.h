@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include"BTree.h"
 #include"List.h"
 #include<string>
@@ -28,28 +28,28 @@ public:
 ostream & operator<<(ostream & out, const Protokol & p)
 {
 	out << p.numTS << "  " << p.date << "  " << setw(6) << left << p.numPPN << setw(20) << p.tag << setw(6) << p.sum
-		<< ((p.pay) ? "Îïëà÷åíî" : "Íå îïëà÷åíî") << endl;
+		<< ((p.pay) ? "ÐžÐ¿Ð»Ð°Ñ‡ÐµÐ½Ð¾" : "ÐÐµ Ð¾Ð¿Ð»Ð°Ñ‡ÐµÐ½Ð¾") << endl;
 	return out;
 }
 
 inline istream & operator>>(istream & in, Protokol & p)
 {
-	cout << "Íîìåð ÒÑ : "; getline(in, p.numTS);
-	cout << "Äàòà     : "; getline(in, p.date);
-	cout << "Íîìåð ÏÏ : "; getline(in, p.numPPN);
-	cout << "Îïèñàíèå : "; getline(in, p.tag);
-	cout << "Ñóììà    : "; in >> p.sum;
+	cout << "ÐÐ¾Ð¼ÐµÑ€ Ð¢Ð¡ : "; getline(in, p.numTS);
+	cout << "Ð”Ð°Ñ‚Ð°     : "; getline(in, p.date);
+	cout << "ÐÐ¾Ð¼ÐµÑ€ ÐŸÐŸ : "; getline(in, p.numPPN);
+	cout << "ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ : "; getline(in, p.tag);
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð°    : "; in >> p.sum;
 	in.ignore();
 	return in;
 }
 
 inline istream & operator>>(istream & in, Protokol * p)
 {
-	cout << "Íîìåð ÒÑ : "; getline(in, p->numTS);
-	cout << "Äàòà     : "; getline(in, p->date);
-	cout << "Íîìåð ÏÏ : "; getline(in, p->numPPN);
-	cout << "Îïèñàíèå : "; getline(in, p->tag);
-	cout << "Ñóììà    : "; in >> p->sum;
+	cout << "ÐÐ¾Ð¼ÐµÑ€ Ð¢Ð¡ : "; getline(in, p->numTS);
+	cout << "Ð”Ð°Ñ‚Ð°     : "; getline(in, p->date);
+	cout << "ÐÐ¾Ð¼ÐµÑ€ ÐŸÐŸ : "; getline(in, p->numPPN);
+	cout << "ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ : "; getline(in, p->tag);
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð°    : "; in >> p->sum;
 	in.ignore();
 	return in;
 }
@@ -71,12 +71,12 @@ void BasePenalty::menu()
 	do
 	{
 		system("cls");
-		cout << "1. Äîáàâèòü ïðîòîêîë" << endl;
-		cout << "2. Ïå÷àòü âñåõ" << endl;
-		cout << "3. Ïîèñê ïî íîìåðó ÒÑ" << endl;
-		cout << "4. Óñòàíîâèòü îïëàòó" << endl;
-		cout << "5. Ïå÷àòü ïî íîìåðó" << endl;
-		cout << "0. Âûõîä" << endl;
+		cout << "1. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ñ‚Ð¾ÐºÐ¾Ð»" << endl;
+		cout << "2. ÐŸÐµÑ‡Ð°Ñ‚ÑŒ Ð²ÑÐµÑ…" << endl;
+		cout << "3. ÐŸÐ¾Ð¸ÑÐº Ð¿Ð¾ Ð½Ð¾Ð¼ÐµÑ€Ñƒ Ð¢Ð¡" << endl;
+		cout << "4. Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¾Ð¿Ð»Ð°Ñ‚Ñƒ" << endl;
+		cout << "5. ÐŸÐµÑ‡Ð°Ñ‚ÑŒ Ð¿Ð¾ Ð½Ð¾Ð¼ÐµÑ€Ñƒ" << endl;
+		cout << "0. Ð’Ñ‹Ñ…Ð¾Ð´" << endl;
 		int n;
 		cin >> n;
 		cin.ignore();
@@ -100,14 +100,14 @@ void BasePenalty::menu()
 
 inline void BasePenalty::addProtokol()
 {
-	cout << " Äîáàâèòü ïðîòîêîë:" << endl;
+	cout << " Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ñ‚Ð¾ÐºÐ¾Ð»:" << endl;
 	cout << "------------------------" << endl;
 	Protokol * prot = new Protokol;
 	cin >> prot;
 	List<Protokol*> * list = base.get(prot->getNumTS());
 	if (!list)
 	{
-		cout << "Äàííûé íîìåð ÒÑ îòñóòñòâóåò â áàçå è áóäåò äîáàâëåí" << endl;
+		cout << "Ð”Ð°Ð½Ð½Ñ‹Ð¹ Ð½Ð¾Ð¼ÐµÑ€ Ð¢Ð¡ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð² Ð±Ð°Ð·Ðµ Ð¸ Ð±ÑƒÐ´ÐµÑ‚ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½" << endl;
 		List<Protokol*> newList;
 		newList.push_front(prot);
 		base.push_r(prot->getNumTS(), newList);
@@ -116,7 +116,7 @@ inline void BasePenalty::addProtokol()
 	{
 		list->push_front(prot);
 	}
-	cout << "Íîâûé ïðîòîêë äîáàâëåí" << endl;
+	cout << "ÐÐ¾Ð²Ñ‹Ð¹ Ð¿Ñ€Ð¾Ñ‚Ð¾ÐºÐ» Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½" << endl;
 }
 
 inline void BasePenalty::print()

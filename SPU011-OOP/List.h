@@ -42,7 +42,7 @@ public:
 	void print();
 	void print(int x, int y);
 	void clear();
-	int  getLength();
+	int  getLength()const;
 	void sort();
 	void sort_reverse();
 	List<T> operator+(const List & obj);
@@ -50,6 +50,7 @@ public:
 
 	template<class T>
 	friend ostream & operator <<(ostream & out, const List<T> & obj);
+	friend ostream & operator <<(ostream & out, const List<T> * obj);
 
 };
 
@@ -271,7 +272,7 @@ inline void List<T>::clear()
 }
 
 template<class T>
-inline int List<T>::getLength()
+inline int List<T>::getLength()const
 {
 	return length;
 }

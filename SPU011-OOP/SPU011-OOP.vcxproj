@@ -123,10 +123,12 @@
     <ClInclude Include="BTree.h" />
     <ClInclude Include="Drob.h" />
     <ClInclude Include="ForwardList.h" />
+    <ClInclude Include="Inheritance.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MyData.h" />
     <ClInclude Include="PrintServer.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="Relation.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Weather.h" />
   </ItemGroup>
