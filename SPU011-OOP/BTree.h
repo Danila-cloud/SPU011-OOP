@@ -23,6 +23,15 @@ public:
 
 	}
 
+	void printD(string k1, string k2) //симетричный
+	{
+		if (left != nullptr) left->printD(k1, k2);
+		if(key >= k1 && key <=k2)
+			cout << value;
+		//value.print();
+		if (right != nullptr) right->printD(k1, k2);
+
+	}
 	void del()
 	{
 		if (left != nullptr) left->del();

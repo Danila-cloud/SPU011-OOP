@@ -20,6 +20,7 @@ public:
 	string getNumTS() { return numTS; }
 
 	friend ostream & operator << (ostream & out, const Protokol & p);
+	friend ostream & operator << (ostream & out, const Protokol * p);
 	friend istream & operator >> (istream & in, Protokol & p);
 	friend istream & operator >> (istream & in, Protokol * p);
 
@@ -29,6 +30,13 @@ ostream & operator<<(ostream & out, const Protokol & p)
 {
 	out << p.numTS << "  " << p.date << "  " << setw(6) << left << p.numPPN << setw(20) << p.tag << setw(6) << p.sum
 		<< ((p.pay) ? "Оплачено" : "Не оплачено") << endl;
+	return out;
+}
+
+ostream & operator<<(ostream & out, const Protokol * p)
+{
+	out << p->numTS << "  " << p->date << "  " << setw(6) << left << p->numPPN << setw(20) << p->tag << setw(6) << p->sum
+		<< ((p->pay) ? "Оплачено" : "Не оплачено") << endl;
 	return out;
 }
 
@@ -62,6 +70,7 @@ public:
 	void menu();
 	void addProtokol();
 	void print();
+	void printDiapason();
 	void find();
 	void setPay();
 };
@@ -76,6 +85,7 @@ void BasePenalty::menu()
 		cout << "3. Поиск по номеру ТС" << endl;
 		cout << "4. Установить оплату" << endl;
 		cout << "5. Печать по номеру" << endl;
+		cout << "6. Печать по диапазону" << endl;
 		cout << "0. Выход" << endl;
 		int n;
 		cin >> n;
@@ -87,6 +97,9 @@ void BasePenalty::menu()
 			break;
 		case 2:
 			print();
+			break;
+		case 6:
+			printDiapason();
 			break;
 		case 0:
 			exit(0);
@@ -122,5 +135,25 @@ inline void BasePenalty::addProtokol()
 inline void BasePenalty::print()
 {
 	base.print();
+	system("pause");
+}
+
+inline void BasePenalty::printDiapason()
+{
+	system("cls");
+	string key1, key2;
+	getline(cin, key1);
+	getline(cin, key2);
+	base.root->printD(key1, key2);
+	//if (base.root)
+	//{
+	//	BTreeNode<string, List<Protokol*>> *node = base.root;
+	//	if (node->left != nullptr && key1 <= node->left->key) 
+	//		node->left->print();
+	//	cout << node->value;
+	//	//value.print();
+	//	if (node->right != nullptr && key2 >= node->right->key) 
+	//		node->right->print();
+	//}
 	system("pause");
 }

@@ -57,7 +57,7 @@ public:
 template<class T>
 inline List<T>::List(const List<T> & obj)
 {
-	for (size_t i = 0; i < length; i++)
+	for (size_t i = 0; i < obj.length; i++)
 	{
 		push_back(obj[i]);
 	}

@@ -175,8 +175,8 @@ int main()
 
 	//forward_list<int>l1;
 	
-	//BasePenalty bs;
-	//bs.menu();
+	BasePenalty bs;
+	bs.menu();
 
 
 	//Composition::Car c;
@@ -223,7 +223,7 @@ int main()
 	cout << *st4 << endl;
 	cout << *st5 << endl;*/
 
-	Human h("Ivan", 50);
+	/*Human h("Ivan", 50);
 	
 
 	const Doctor d("Ivan", 50, 5000, 12);
@@ -233,7 +233,7 @@ int main()
 
 
 	const Patalogoanatom p("Petro", 70, 50000, 1200, true);
-	p.print();
+	p.print();*/
 
 	system("pause");
 }
