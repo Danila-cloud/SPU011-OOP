@@ -145,15 +145,5 @@ inline void BasePenalty::printDiapason()
 	getline(cin, key1);
 	getline(cin, key2);
 	base.root->printD(key1, key2);
-	//if (base.root)
-	//{
-	//	BTreeNode<string, List<Protokol*>> *node = base.root;
-	//	if (node->left != nullptr && key1 <= node->left->key) 
-	//		node->left->print();
-	//	cout << node->value;
-	//	//value.print();
-	//	if (node->right != nullptr && key2 >= node->right->key) 
-	//		node->right->print();
-	//}
 	system("pause");
 }
