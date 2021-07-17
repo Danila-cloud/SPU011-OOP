@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include"Array.h"
 #include"Drob.h"
@@ -13,6 +14,8 @@
 #include"BasePenalty.h"
 #include"Relation.h"
 #include"Inheritance.h"
+#include"Animal.h"
+#include"Interface.h"
 
 using namespace std;
 
@@ -175,8 +178,8 @@ int main()
 
 	//forward_list<int>l1;
 	
-	BasePenalty bs;
-	bs.menu();
+	//BasePenalty bs;
+	//bs.menu();
 
 
 	//Composition::Car c;
@@ -223,17 +226,109 @@ int main()
 	cout << *st4 << endl;
 	cout << *st5 << endl;*/
 
-	/*Human h("Ivan", 50);
+	//Human h("Ivan", 50);
+	//h.method();
+
+	//const Doctor d("Ivan", 50, 5000, 12);
+	//d.print();
+	////d.method();
+	//cout << endl;
+
+
+
+	//const Patalogoanatom p("Petro", 70, 50000, 1200, true);
+	//p.print();
+
+
+	/*WIFIDevice w(12, 34, 56);
+	w.USBAdapter::Adapter::id = 100;
+	cout << w.USBAdapter::Adapter::id<< endl;
+	cout << w.LANAdapter::Adapter::id<< endl;*/
+
+	//Animal a("Kto-to", 10);
+	//cout << a.getName() << " " << a.getAge() << " " << a.getType() << endl;
+
+
+	//Cat c("Tom", 5);
+	//cout << c.getName() << " " << c.getAge() << " " << c.getType() << endl;
+
+	//Dog d("Spike", 6);
+	//cout << d.getName() << " " << d.getAge() << " " << d.getType() << endl;
+
+	//SiamCat sc("Siam", 8);
+
+	/*Animal &refC = c;
+	cout << refC.getName() << " " << refC.getAge() << " " << refC.getType() << endl;
+
+	Animal *ptrC = &c;
+	cout << ptrC->getName() << " " << ptrC->getAge() << " " << ptrC->getType() << endl;
+
+	Animal &refD = d;
+	cout << refD.getName() << " " << refD.getAge() << " " << refD.getType() << endl;
+
+	Animal *ptrD = &d;
+	cout << ptrD->getName() << " " << ptrD->getAge() << " " << ptrD->getType() << endl;*/
+
+	/*Animal *animal[] = { &c, &d, &sc };
+	for (size_t i = 0; i < 3; i++)
+	{
+		cout << animal[i]->getName() << " " << animal[i]->getAge() << " " << animal[i]->voice() << endl;
+	}*/
+
+	//C1 c1;
+	//Base b = c1;
+	/*cout << sizeof(Base) << endl;
+	b.f1();
+	b.f2();
+
+	C1 c1;
+	c1.f1();
+	c1.f2();
+	
+	C2 c2;
+	c2.f1();
+	c2.f2();*/
+
+	
+	//Cat * cd = new Cat("Tom", 2);
+	//Animal * a = cd;
+	//delete a;
+	
+	//Animal a("wrefwerf", 3);
+	//Cat * cd = new Cat("Tom", 2);
+	//cout << cd->voice();
+	//Ulitka u("Dora", 2);
+	//cout << u.voice();
+
+	/*ConsoleLog cLog;
+	cout << mySQRT(-5, cLog) << endl;
+
+	FileLog fLog("logs.txt");
+	cout << mySQRT(-5, fLog) << endl;*/
+
+	/*Animal *animal[10];
+	for (size_t i = 0; i < 10; i++)
+	{
+		animal[i] = getAnimal();
+	}*/
+
+	//Cat c("Tom", 5);
+	//c.kogti();
+
+	/*Animal * a = new Cat ("Tom", 5);;
+	Cat * cp = dynamic_cast<Cat*>(a);
+	if(cp)
+		cp->kogti();*/
 	
 
-	const Doctor d("Ivan", 50, 5000, 12);
-	d.print();
-	cout << endl;
+	/*for (size_t i = 0; i < 10; i++)
+	{
+		cout << animal[i]->getName() << " Voice: " << animal[i]->voice() << endl;
+		Cat * cp = dynamic_cast<Cat*>(animal[i]);
+		if (cp)
+			cp->kogti();
+	}*/
 
-
-
-	const Patalogoanatom p("Petro", 70, 50000, 1200, true);
-	p.print();*/
 
 	system("pause");
 }

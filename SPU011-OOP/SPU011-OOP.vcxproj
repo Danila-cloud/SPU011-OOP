@@ -118,12 +118,14 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animal.h" />
     <ClInclude Include="Array.h" />
     <ClInclude Include="BasePenalty.h" />
     <ClInclude Include="BTree.h" />
     <ClInclude Include="Drob.h" />
     <ClInclude Include="ForwardList.h" />
     <ClInclude Include="Inheritance.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MyData.h" />
     <ClInclude Include="PrintServer.h" />

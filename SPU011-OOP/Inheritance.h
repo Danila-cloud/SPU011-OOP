@@ -21,6 +21,7 @@ public:
 		cout << "Name   : " << name << endl;
 		cout << "Age    : " << age<< endl;
 	}
+	void method() const { cout << "Method" << endl; }
 };
 
 
@@ -47,7 +48,8 @@ public:
 		cout << "Exp    : " << experience << endl;
 	}
 	int getSalary()const { return salary; }
-	int getExper() const { return experience; }
+	int getExper() const { return experience; Human::method(); }
+	void method() const = delete;
 };
 
 class Patalogoanatom : public Doctor
@@ -62,4 +64,56 @@ public:
 		Doctor::print();
 		cout << "Diplom : " << ((diplom)?"Yes":"No") << endl;
 	}
+};
+
+class Adapter
+{
+public:
+	int id;
+	Adapter() {}
+	Adapter(int id) :id(id) {}
+};
+
+
+class USBAdapter : virtual public Adapter
+{
+	int id;
+public:
+	USBAdapter(int id, int idA): id(id), Adapter(idA){	}
+	int getID() { return id; }
+};
+
+class LANAdapter : virtual public Adapter
+{
+	int id;
+public:
+	LANAdapter(int id, int idA) : id(id), Adapter(idA) {	}
+	int getID() { return id; }
+};
+
+class WIFIDevice : public USBAdapter, public LANAdapter
+{
+public:
+	WIFIDevice(int idUSB, int idLAN, int idA) : USBAdapter(idUSB, idA), LANAdapter(idLAN, idA) {};
+};
+
+
+
+class Base
+{
+public:
+	virtual void f1() { cout << "Base F1" << endl; }
+	virtual void f2() { cout << "Base F2" << endl; }
+};
+
+class C1 : public Base
+{
+public:
+	void f1() { cout << "C1 F1" << endl; }
+};
+
+class C2 : public Base
+{
+public:
+	void f2() { cout << "C2 F2" << endl; }
 };
